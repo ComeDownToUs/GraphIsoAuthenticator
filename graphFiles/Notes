@@ -1,0 +1,3 @@
+1server.c contains the writing code for these here
+
+these each contain one char [COMPRESS_SIZE] array
