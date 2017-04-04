@@ -38,10 +38,13 @@ I managed to adapt the pre-key exhange version of this code quite easily to ardu
 
 COMPILE SERVER: 
     ``` $ gcc -pthread -o [name] gmwServ.c miracl.a ```
+    
 COMPILE CLIENT: 
     ``` $ gcc -o [name2] gmwCli.c miracl.a ```
+    
 RUN SERVER: 
     ``` $ [location+name] [portNo] ```
+    
 RUN CLIENT: 
     ``` $ [location+name2] [ServerIP] [server portNo] ```
 
