@@ -1,8 +1,10 @@
 # GraphIsoAuthenticator
 
-+++++++++++++MIRACL++++++++++++++
+## MIRACL
+
 This system currently uses the Certivox MIRACL library, found at https://www.certivox.com/miracl for multiple precision arithmetic. I am honestly unsure whether that is okay to host here but the files mirdef.h, miracl.h and miracl.a were compiled through the libraries simple config system and used all of the default settings to be built.
-+++++++++++++++++++++++++++++++++
+
+## General Explanation
 
 The code represents a prototype authetication protocol for use in small embedded systems within the Internet of Things. The idea is that by using the graph isomorphism problem to autheticate devices, the computational overhead can be significantly lower than that used by existing standard. To increase functionality, this version of the prototype also includes a key exchange mechanism which uses piecewise encoding to transmit public keys within the authentication process.
 
@@ -14,9 +16,8 @@ Let me know anything you would like better comments on and I will add them.
 The Generate folder contains all the code with which the graphs and individual user info accounts are created with
 The code seemed to run into some kind of issue with graphs with fewer than 32 nodes, would love to hear what I'm doing wrong there. It also crashes at sizes greater than 158 nodes, which I don't entirely understand, there were previous issues in a few spots with unsigned chars but I'm lost here.
 
-=======================
-AREAS TO IMPROVE UPON
-=======================
+## AREAS TO IMPROVE UPON
+
 1. Reduce usage of "decompress_graph"
 The compression algorithm for digital representations of graphs significantly cuts down upon the bandwitdh and storage overheads involved by reducing the code to a bit level and removing what amounts to near 50% repetition of data. However, the current processes to verify isomorphisms requires decompressing these graphs, I am pretty confident alternative versions of verify_graphs and permGraph within gmw.h could be designed which achieve all of this without the need decompress these graphs at all.
 
@@ -33,11 +34,15 @@ I managed to adapt the pre-key exhange version of this code quite easily to ardu
 
 
 
-RUN PROGRAM
-=====================
-COMPILE SERVER: $ gcc -pthread -o [name] gmwServ.c miracl.a 
-COMPILE CLIENT: $ gcc -o [name2] gmwCli.c miracl.a
-RUN SERVER: $ [location+name] [portNo]
-RUN CLIENT: $ [location+name2] [ServerIP] [server portNo]
+## RUN PROGRAM
+
+COMPILE SERVER: 
+    ``` $ gcc -pthread -o [name] gmwServ.c miracl.a ```
+COMPILE CLIENT: 
+    ``` $ gcc -o [name2] gmwCli.c miracl.a ```
+RUN SERVER: 
+    ``` $ [location+name] [portNo] ```
+RUN CLIENT: 
+    ``` $ [location+name2] [ServerIP] [server portNo] ```
 
 The server is multithreaded.
